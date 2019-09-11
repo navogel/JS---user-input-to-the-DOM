@@ -1,25 +1,24 @@
 console.log("hello");
 
-const addressArray = [];
+const allThings = [];
 
-function masterBuilder(personObj) {
+function masterBuilder(things) {
 	return `
 		<div>
-			<h2>name: ${personObj.name}</h2>
-			<p>Address: ${personObj.address}</p>
+			<h2>Things I NEED: ${things.name}</h2>
+			<p>WHERE CAN GET: ${things.address}</p>
 		</div>
 	`;
 }
 
 document.querySelector("#saveEntry").addEventListener("click", event => {
-	const personName = document.querySelector("#fullName").value;
-	const personAddress = document.querySelector("#address").value;
-	const person = {
-		name: personName,
-		address: personAddress
+	const faveThing = document.querySelector("#faveThings").value;
+	const location = document.querySelector("#store").value;
+	const things = {
+		name: faveThing,
+		store: location
 	};
-	addressArray.push(person);
-	document.querySelector("#addressList").innerHTML += masterBuilder(person);
+	allThings.push(things);
+	document.querySelector("#favesList").innerHTML += masterBuilder(things);
+	console.log(things);
 });
-
-console.log(addressArray);
